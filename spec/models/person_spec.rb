@@ -22,4 +22,10 @@ RSpec.describe Person, type: :model do
   	expect(person).not_to be_valid
   end
 
+  # check that person is capable of having phone numbers
+
+  it 'has an array of phone numbers' do
+  	expect(person.phone_numbers).to eq([])
+  end
+
 end
