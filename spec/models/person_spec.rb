@@ -28,4 +28,8 @@ RSpec.describe Person, type: :model do
   	expect(person.phone_numbers).to eq([])
   end
 
+  it 'has a link to add a new phone number' do
+  	expect(page).to have_link('Add phone number', href: new_phone_number_path)
+  end
+
 end
