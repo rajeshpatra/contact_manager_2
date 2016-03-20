@@ -81,9 +81,17 @@ RSpec.describe EmailAddressesController, type: :controller do
         expect(assigns(:email_address)).to be_persisted
       end
 
-      it "redirects to the created email_address" do
+      # it "redirects to the created email_address" do
+      #   post :create, {:email_address => valid_attributes}, valid_session
+      #   expect(response).to redirect_to(EmailAddress.last)
+      # end
+
+      # Here we are looking for other behavior. Let's change the expectation:
+      it "redirects to email address's person" do
+        ryan = Person.create(first_name: 'Ryan', last_name: 'Reynolds')
+        valid_attributes = {address: 'you@gmail.com', person_id: ryan.id}
         post :create, {:email_address => valid_attributes}, valid_session
-        expect(response).to redirect_to(EmailAddress.last)
+        expect(resoponse).to redirect_to(ryan)
       end
     end
 
