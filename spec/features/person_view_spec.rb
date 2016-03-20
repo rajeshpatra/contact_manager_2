@@ -43,7 +43,7 @@ describe 'the person view', type: :feature do
   		expect(current_path).to eq(person_path(person))
   		expect(page).to have_content('1234567890')
 
-  		# unable to implement this 
+  		# unable to implement this and test fails
   		# expect(page).to_not have_content(old_number)
   	end
 
@@ -58,8 +58,12 @@ describe 'the person view', type: :feature do
   		first(:link, 'Delete').click
   		expect(current_path).to eq(person_path(person))
   	end
+end
 
-  	before(:each) do
+describe 'the person view', type: :feature do
+	let(:person) {Person.create(first_name: 'Chris', last_name: 'Evans')}
+
+	before(:each) do
   		person.email_address.create(address: 'rajesh@gmail.com')
   		person.email_address.create(address: 'rzs@gmail.com')
   		visit person_path(person)
@@ -89,7 +93,7 @@ describe 'the person view', type: :feature do
   		end
   	end
 
-  	it 'edits a email address' do
+  	it 'edits an email address' do
   		email = person.email_address.first
   		old_address = email.address
 
@@ -108,7 +112,7 @@ describe 'the person view', type: :feature do
   		end
   	end
 
-  	it 'deletes a email address' do
+  	it 'deletes an email address' do
   		email = person.email_address.first
   		first(:link, 'delete').click
   		expect(current_path).to eq(person_path(person))
