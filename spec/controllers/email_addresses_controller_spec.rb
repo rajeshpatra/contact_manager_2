@@ -69,6 +69,8 @@ RSpec.describe EmailAddressesController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
+      let(:ryan) {Person.create(first_name: 'Ryan', last_name: 'Reynolds')}
+      let(:valid_attributes) {{address: 'you@gmail.com', person_id: ryan.id}}
       it "creates a new EmailAddress" do
         expect {
           post :create, {:email_address => valid_attributes}, valid_session
