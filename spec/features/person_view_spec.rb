@@ -107,4 +107,10 @@ describe 'the person view', type: :feature do
   			expect(page).to have_link('delete', href: email_address_path(email))
   		end
   	end
+
+  	it 'deletes a email address' do
+  		email = person.email_address.first
+  		first(:link, 'delete').click
+  		expect(current_path).to eq(person_path(person))
+  	end
 end
