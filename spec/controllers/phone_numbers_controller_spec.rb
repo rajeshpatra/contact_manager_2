@@ -130,10 +130,21 @@ RSpec.describe PhoneNumbersController, type: :controller do
         expect(assigns(:phone_number)).to eq(phone_number)
       end
 
-      it "redirects to the phone_number" do
+      # it "redirects to the phone_number" do
+      #   phone_number = PhoneNumber.create! valid_attributes
+      #   put :update, {:id => phone_number.to_param, :phone_number => valid_attributes}, valid_session
+      #   expect(response).to redirect_to(phone_number)
+      # end
+
+      # Create a person bob who has a phone number, and make sure the test expects to redirect
+      # to bob rather than phone number
+
+      it 'redirects to the phone_number' do
+        bob = Person.create(first_name: 'Bob', last_name: 'Jones')
+        valid_attributes = {number: '1234567890', person_id: bob.id}
         phone_number = PhoneNumber.create! valid_attributes
         put :update, {:id => phone_number.to_param, :phone_number => valid_attributes}, valid_session
-        expect(response).to redirect_to(phone_number)
+        expect(response).to redirect_to(bob)
       end
     end
 
