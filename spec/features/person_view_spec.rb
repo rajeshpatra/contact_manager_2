@@ -49,7 +49,7 @@ describe 'the person view', type: :feature do
 
   	it 'has links to delete phone number' do
   		person.phone_numbers.each do |phone|
-  			expect(page).to have_link('Delete', href: phone_number_path)
+  			expect(page).to have_link('Delete', href: phone_number_path(phone))
   		end
   	end
 end
