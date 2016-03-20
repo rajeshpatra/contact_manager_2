@@ -53,7 +53,7 @@ describe 'the person view', type: :feature do
   		end
   	end
 
-  	xit 'deletes a phone number' do
+  	it 'deletes a phone number' do
   		phone = person.phone_numbers.first
   		first(:link, 'Delete').click
   		expect(current_path).to eq(person_path(person))
