@@ -88,4 +88,16 @@ describe 'the person view', type: :feature do
   			expect(page).to have_link('edit', href: edit_email_address_path(email))
   		end
   	end
+
+  	it 'edits a email address' do
+  		email = person.email_address.first
+  		old_address = email.address
+
+  		first(:link, 'edit').click
+  		page.fill_in('Address', with: 'you@gmail.com')
+  		page.click_button('Update Email address')
+  		expect(current_path).to eq(person_path(person))
+  		expect(page).to have_content('you@gmail.com')
+  		expect(page).to_not have_content(old_address)
+  	end
 end
