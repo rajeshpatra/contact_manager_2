@@ -64,4 +64,10 @@ describe 'the person view', type: :feature do
   		person.email_address.create(address: 'rzs@gmail.com')
   		visit person_path(person)
   	end
+
+  	it 'shows the email addresses' do
+  		person.email_address.each do |email|
+  			expect(page).to have_content(email.address)
+  		end
+  	end
 end
