@@ -24,11 +24,11 @@ RSpec.describe EmailAddressesController, type: :controller do
   # EmailAddress. As you add validations to EmailAddress, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {email_address: 'MyString', person_id: 1}
+    {address: 'MyString', person_id: 1}
   }
 
   let(:invalid_attributes) {
-    {email_address: nil, person_id: nil}
+    {address: nil, person_id: nil}
   }
 
   # This should return the minimal set of values that should be in the session
