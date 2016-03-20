@@ -75,7 +75,7 @@ describe 'the person view', type: :feature do
   		expect(page).to have_link('Add Email Address', href: new_email_address_path(person_id: person.id))
   	end
 
-  	xit 'adds a new email address' do
+  	it 'adds a new email address' do
   		page.click_link('Add Email Address')
   		page.fill_in('Address', with: 'you@gmail.com')
   		page.click_button('Create Email address')
