@@ -98,6 +98,9 @@ describe 'the person view', type: :feature do
   		page.click_button('Update Email address')
   		expect(current_path).to eq(person_path(person))
   		expect(page).to have_content('you@gmail.com')
+  		# here the following code doesn't give any error but in phone number it is, so check for that.
   		expect(page).to_not have_content(old_address)
   	end
+
+
 end
