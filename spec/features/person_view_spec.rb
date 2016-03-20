@@ -58,4 +58,10 @@ describe 'the person view', type: :feature do
   		first(:link, 'Delete').click
   		expect(current_path).to eq(person_path(person))
   	end
+
+  	before(:each) do
+  		person.email_address.create(address: 'rajesh@gmail.com')
+  		person.email_address.create(address: 'rzs@gmail.com')
+  		visit person_path(person)
+  	end
 end
