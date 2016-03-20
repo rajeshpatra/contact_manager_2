@@ -91,7 +91,7 @@ RSpec.describe EmailAddressesController, type: :controller do
         ryan = Person.create(first_name: 'Ryan', last_name: 'Reynolds')
         valid_attributes = {address: 'you@gmail.com', person_id: ryan.id}
         post :create, {:email_address => valid_attributes}, valid_session
-        expect(resoponse).to redirect_to(ryan)
+        expect(response).to redirect_to(ryan)
       end
     end
 
