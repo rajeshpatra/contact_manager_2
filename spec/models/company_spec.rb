@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Company, type: :model do
   let(:company) do
-  	Company.new
+  	Company.new(name: 'MyString')
   end
 
   it 'is valid' do
