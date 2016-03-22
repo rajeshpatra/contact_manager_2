@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PhoneNumber, type: :model do
   let(:phone_number) do
-  	PhoneNumber.new(number:'1234567890', person_id: 1)
+  	PhoneNumber.new(number:'1234567890', person_id: 1, contact_type: 'Person')
   end
 
   it 'is valid' do
