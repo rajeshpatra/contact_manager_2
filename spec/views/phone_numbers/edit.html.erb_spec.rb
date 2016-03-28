@@ -4,7 +4,8 @@ RSpec.describe "phone_numbers/edit", type: :view do
   before(:each) do
     @phone_number = assign(:phone_number, PhoneNumber.create!(
       :number => "MyString",
-      :contact_id => 1
+      :contact_id => 1,
+      :contact_type => 'Person'
     ))
   end
 
